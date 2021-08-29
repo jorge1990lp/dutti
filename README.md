@@ -34,5 +34,6 @@ Navigate to `http://localhost:4200/`.
 
 
 # Notas del desarrollador:
-
+Para la implementación de la tarea 2, haré una codificación sencilla en base64 de los datos del usuario, generando un token.
+Además implemento un Guard para el control de acceso. 
 
