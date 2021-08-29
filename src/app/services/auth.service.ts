@@ -12,6 +12,14 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  getToken(): string {
+    return localStorage.getItem('access_token');
+  }
+
+  logout(): void {
+    localStorage.removeItem('access_token');
+  }
+
   login(username, password): Observable<String> {
     return new Observable ((observer) => {
       this.http.get<Array<User>>(this.URL_JSON).subscribe(users => {
