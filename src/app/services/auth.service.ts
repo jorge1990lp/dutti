@@ -26,5 +26,29 @@ export class AuthService {
       });
     });
   }
+
+  register(firstname, lastname, username, email): Observable<String> {
+    return new Observable((observer) => {
+      this.http.get<Array<User>>(this.URL_JSON).subscribe(users => {
+        
+        const user = users.filter( function(user) { return user.username === username || user.email === email});
+        if(user.length > 0) {
+          observer.error('User exists.');
+        } else {
+          const newUser: User =  {
+            first_name: firstname,
+            last_name: lastname,
+            username: username,
+            email: email
+          };
+          users.push(newUser);
+          console.log('Users list', users);
+          const token = btoa(JSON.stringify(newUser));
+          observer.next(token);
+          observer.complete();
+        }
+      });
+    });
+  }
 }
 

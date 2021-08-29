@@ -67,6 +67,9 @@
             <!-- <a routerLink="/" class="btn btn-link">Cancel</a> -->
             <button type="button" class="btn buttons__register" routerLink="/">Cancelar</button>
         </div>
+        <div class="form-group mt-5 colorInvalid" *ngIf="messageError">
+            {{messageError}}
+        </div>
     </form>
 </div>
 

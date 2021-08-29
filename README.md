@@ -35,5 +35,6 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 Para la implementación de la tarea 2, haré una codificación sencilla en base64 de los datos del usuario, generando un token.
-Además implemento un Guard para el control de acceso. 
+Para el registro, al tratarse de una prueba, se genera el token con los datos pasados pero no se modifica el archivo users.json, en cambio se hace un console.log con el listado de todos los usuarios.
+
 
