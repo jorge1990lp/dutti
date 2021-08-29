@@ -9,6 +9,7 @@ import { PageOneComponent } from './components/page-one/page-one.component';
 import { PageTwoComponent } from './components/page-two/page-two.component';
 import { ShipsDetailsComponent } from './components/ships-details/ships-details.component';
 import { PrincipalComponent } from './principal.component';
+import { ImagePipe } from 'src/app/pipes/image.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PrincipalComponent } from './principal.component';
     ShipsDetailsComponent,
     PageOneComponent,
     PageTwoComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ImagePipe
   ],
   imports: [
     CommonModule,

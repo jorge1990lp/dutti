@@ -29,12 +29,6 @@ export class ShipsDetailsComponent implements OnInit {
       };
   }
 
-  getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
-  }
-
   pageChanged(event){
     this.config.currentPage = event;
   }
