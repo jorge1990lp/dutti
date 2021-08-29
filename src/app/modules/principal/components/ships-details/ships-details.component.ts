@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { ShipsService } from 'src/app/services/ships.service';
 declare var $: any;
 
 
@@ -18,18 +19,27 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() { 
+  constructor( private shipsService: ShipsService) { 
   }
   
   ngOnInit(): void {
       this.config = {
-        itemsPerPage: 5,
+        itemsPerPage: 10,
         currentPage: 1,
-        totalItems: this.dataList.length
+        totalItems: 10
       };
   }
 
+  ngOnChanges(change: SimpleChange) {
+    if(this.config) {
+      this.config.totalItems = this.dataList.count;
+    }
+  }
+
   pageChanged(event){
+    this.shipsService.getShips(event).subscribe(resp => {
+      this.dataList = resp;
+    });
     this.config.currentPage = event;
   }
 
